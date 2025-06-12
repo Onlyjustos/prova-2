@@ -1,0 +1,5 @@
+Custo: 28
+Custo: 17
+Caminho invalido
+Custo: 3
+

@@ -1,0 +1,11 @@
+Caminho invalido
+Caminho invalido
+Caminho invalido
+Custo: 3
+Caminho invalido
+Caminho invalido
+Custo: 0
+Caminho invalido
+Custo: 8
+Caminho invalido
+
