@@ -5,7 +5,7 @@ int main () {
     char str[201], caractere;
 
     while(scanf("%c", &caractere) != EOF) {
-        if(caractere >= 97 && caractere <= 122) {
+        if(caractere >= 97 && caractere <= 122) { // s[1]
             str[i] = caractere;
             i++;
         }
@@ -31,3 +31,5 @@ int main () {
 
     return 0;
 }
+
+//[1] Grave: o programa desconsidera numeros e letras maiúsculas
