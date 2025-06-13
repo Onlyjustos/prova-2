@@ -10,7 +10,7 @@ int comparar_string(const char * a, const int size){
     espelhado = malloc(size * sizeof(char));
 
     for(i = 0; i < size; i++){
-        if(a[i] != ' ') sem_esp[i] = a[i];
+        if(a[i] != ' ') sem_esp[i] = a[i]; // [1]
         else if(a[i] == ' ' && a[i+1] == ' ') sem_esp[i] = ' '; 
         else continue; 
 
@@ -21,7 +21,7 @@ int comparar_string(const char * a, const int size){
     
     free(sem_esp);
     free(espelhado);
-    return 1;
+    return 1; // [2]
 
 }
 
@@ -40,4 +40,7 @@ int main(){
     else printf("NAO PALINDROMO\n");
 
     return 0;
+
+    // [1] Grave: Indice errado ao preencher sem_esp
+    // [2] Grave: Não compara se é palíndromo, a função sempre retorna 1
 }
