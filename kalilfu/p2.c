@@ -29,3 +29,5 @@ int main(){
     }
     return 0;
 }
+
+//[1] Grave: o programa desconsidera numeros e letras maiúsculas
