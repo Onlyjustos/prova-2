@@ -24,7 +24,7 @@ int main() {
         }
     }
     scanf("%d", &k); //ler quantos caminhos
-    char c[32]; //string caminho
+    char c[32]; // [1]
 
     for(i = 0; i < k; i++) { //loop de caminho
         scanf("%s", c); //le caminho
@@ -32,7 +32,7 @@ int main() {
         custo = calcDistancia(m, c, n);
         if (custo == -1) {
             printf("Caminho invalido\n");
-            return 0;
+            return 0; // [2]
         }
         printf("Custo: "); //printa caminho
         printf("%d\n", custo);
@@ -45,23 +45,21 @@ int main() {
 int calcDistancia(int m[][32], char *p, int n) {
     int i, j, count = 0, k=0, a, b;
 
-    
-
     while(p[k+1] != '\0') {
-            a = (p[k] - 65); //posição do numero
-            b = (p[k+1] - 65); 
+        a = (p[k] - 65); //posição do numero
+        b = (p[k+1] - 65); 
 
-            if(m[a][b] == -1) return -1;
+        if(m[a][b] == -1) return -1;
 
-            if (p[k] == p[k+1]) {
-                count += 0;
-            } else {
-                count += m[a][b];
-            }
+        if (p[k] == p[k+1]) {
+            count += 0; 
+        } else {
+            count += m[a][b];
+        }
         k++;
     }
     return count;
 }
 
-//'A' == 65
-// 'Z' == 
+// [1] Tamanho insuficiente para armazenar até 33 letras + '\0'.
+// [2] O programa é encerrado ao encontrar o primeiro caminho inválido.
