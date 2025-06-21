@@ -12,13 +12,13 @@
 int calcula_distancia( int m[][dim], char * p ){
     int i, j;
     char inicio = *p;
-    char destino = (*p)++;
+    char destino = (*p)++; 
     int custo = 0;
     int invalido = 0;
 
-    for(i = 'A'; i <= inicio; i++){
+    for(i = 'A'; i <= inicio; i++){ 
         if(i == inicio){
-            for(j = 'A'; j <= destino; j++){
+            for(j = 'A'; j <= destino; j++){ 
                 if(j == destino){
                     if(m[i][j] == -1){
                         invalido = 1;
@@ -29,7 +29,7 @@ int calcula_distancia( int m[][dim], char * p ){
             } 
         }
         inicio = destino;
-        destino = destino++;
+        destino = destino++; 
         if( destino != '\0'){
             continue;
         } else {
@@ -39,7 +39,7 @@ int calcula_distancia( int m[][dim], char * p ){
 
     if(custo > 0){
         return custo;
-    } else -1;
+    } else -1; // [1]
 
 }
 
@@ -49,8 +49,7 @@ int main(){
     int custo = 0;
     scanf("%d", &M);
 
-
-    for(i = 'A'; i < M + 65; i++){
+    for(i = 'A'; i < M + 65; i++){ // [2]
         for(j = 'A'; j < M + 65; j++){
         scanf("%d", &matriz[i][j]);
         }
@@ -62,7 +61,7 @@ int main(){
 
     for(i = 0; i < S; i++){
         scanf("%s", vetor);
-        while(vetor[j] != '\0'){
+        while(vetor[j] != '\0'){ // [3]
             j++;
         }
 
@@ -73,10 +72,9 @@ int main(){
         } else {
             printf("Caminho invalido\n");
         }
-        
     }
-
-
-
-
 }
+
+// [1] `else -1;` não retorna nada. Correção: trocar por `return -1;`
+// [2] Loop usando i de 'A' a 'A'+M é incorreto. Índices da matriz devem ser de 0 a M-1, não letras.
+// [3] variável `j` usada sem ser inicializada antes do while. 
