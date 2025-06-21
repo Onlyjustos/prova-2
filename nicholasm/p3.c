@@ -75,6 +75,6 @@ int main(){
     }
 }
 
-// [1] `else -1;` não retorna nada. Correção: trocar por `return -1;`
+// [1] `else -1;` não retorna nada. 
 // [2] Loop usando i de 'A' a 'A'+M é incorreto. Índices da matriz devem ser de 0 a M-1, não letras.
 // [3] variável `j` usada sem ser inicializada antes do while. 
