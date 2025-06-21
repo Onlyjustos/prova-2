@@ -52,3 +52,5 @@ int main(){
     
  return 0;   
 }
+
+//Enviou o código da questão 2 no lugar da 3
