@@ -6,7 +6,7 @@ int tamanho_string(const char * a){
     do { 
         i++;
     }
-    while(a[i] != '\0');
+    while(a[i] != '\0'); 
     return i;
 }
 
@@ -28,11 +28,11 @@ int calcula_distancia(int * m, char * p, const int size) {
     for(i = 0; i < t; i++){
         cidades[i] = (int) p[i] - (int)'A';
     }
-    ////
+
     int c1, c2, indice, custo = 0;
-    for (i = 0; i < t; i++){
+    for (i = 0; i < t; i++){ // [1]
         c1 = cidades[i];
-        c2 = cidades[i+1];
+        c2 = cidades[i+1]; // [1]
         indice = c1 * size + c2;
         if (m[indice] == -1) return -1;
         custo += m[indice];
@@ -59,19 +59,22 @@ int main(){
 
     scanf("%d", &k);
 
-    caminhos = malloc(k + 1 * sizeof(char));
+    caminhos = malloc(k + 1 * sizeof(char)); // [2]
     int size = k;
     for(i = 0; i < k; i++){
-        scanf("%s", caminhos);
+        scanf("%s", caminhos); 
         int custo = calcula_distancia(matriz, caminhos, n);
         if(custo != -1) printf("Custo: %d\n", custo);
-        else if (custo = -1) printf("Caminho invalido\n");
+        else if (custo = -1) printf("Caminho invalido\n"); // [3]
     }
-
-    
 
     free(matriz);
     free(caminhos);
 
     return 0;
 }
+
+
+// [1] O loop vai até i < t, acessando cidades[i+1] na última iteração, que está fora do vetor.
+// [2] Grave: Não está alocando memória suficiente para a string.
+// [3] `else if (custo = -1)` usa atribuição, e não comparação.
