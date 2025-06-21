@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #define dim 20
+
 int my_strlen(char *p)
 {
     int count=0;
@@ -12,7 +13,8 @@ int my_strlen(char *p)
     }
     return count;
 }
-int calcula_distancia(int m[][dim],char*p)
+
+int calcula_distancia(int m[][dim],char*p) // [1]
 {
     char*x=p;
     int tamanho=my_strlen(x);
@@ -30,12 +32,13 @@ int calcula_distancia(int m[][dim],char*p)
         else
         {
             return -1;
-            break;
+            break; 
         }
         i++;
     }
     return count;
 }
+
 int main()
 {
     int n;
@@ -56,15 +59,15 @@ int main()
     {
         for(y=0;y<n;y++)
         {
-            scanf("%d",&M[x][y]);
+            scanf("%d",&M[x][y]); 
         }
     }
     scanf("%d",&vez);
     for(z=0;z<vez;z++)
     {
-        scanf("%[^\n]",caminho);
+        scanf("%[^\n]",caminho); // [2]
         getchar();
-        distancia=calcula_distancia(M,caminho);
+        distancia=calcula_distancia(M,caminho); // [3]
         if(distancia!=-1)
         {
             printf("Custo: %d\n",distancia);
@@ -81,3 +84,7 @@ int main()
     free(M);
     return 0;
 }
+
+// [1] Tipo da matriz na função é int m[][dim], mas M foi alocada como int** dinamicamente. 
+// [2] Pode gerar problemas se houver resíduos no buffer do teclado, deve-se limpar antes. 
+// [3] Passando `M` (int**) para uma função que espera `int[][dim]`.
