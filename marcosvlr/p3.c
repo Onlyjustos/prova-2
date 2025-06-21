@@ -1,6 +1,6 @@
 #include<stdio.h>
-
-
+ 
+ 
 int main (){
     int i, j, k =0, tamanho = 0, controle = 0, dim, n;
 
@@ -8,7 +8,7 @@ int main (){
 
     char atual, proximo;
     int m[dim][dim];
-    int dist[dim*dim];
+    int dist[dim*dim]; 
     char caminho[32];
     int dist_tot = 0;
 
@@ -19,17 +19,17 @@ int main (){
         }
     }
     scanf("%d", &n);
-    getchar();
+    getchar(); 
 
     while(n--){
         controle = 0;
         dist_tot = 0;
         fgets(caminho , 32, stdin);
             for(i = 0; caminho[i]!= '\0'; i++){
-            tamanho++;
+            tamanho++; // [1]
          }
 
-            for(i = 1; i<tamanho; i++){
+            for(i = 1; i<tamanho; i++){ // [2], [3]
                 atual = caminho[i-1];
                 proximo = caminho [i];
 
@@ -96,6 +96,9 @@ int main (){
             }
     }
 
-
     return 0;
 }
+
+// [1] A variável `tamanho` não é zerada a cada nova linha lida.
+// [2] A estrutura só trata cidades de A a E manualmente, sem generalização para qualquer tamanho. 
+// [3] Nenhum tratamento para letras fora de A–E. 
